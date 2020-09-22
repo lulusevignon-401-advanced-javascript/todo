@@ -3,7 +3,9 @@ import TodoForm from './form.js';
 import TodoList from './list.js';
 
 import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 import './todo.scss';
@@ -23,6 +25,7 @@ function ToDo() {
 
     setList(updatedList);
   }, []);
+  
   const addItem = (item) => {
     item._id = Math.random();
     item.complete = false;
@@ -44,31 +47,41 @@ function ToDo() {
 
   return (
     <>
+      <Container>
+      <Row>
+          <Col>
         <header>
           <Navbar bg="dark" style={{ color : "#FFF" }}>
           <h2>
-          There are {list.filter(item => !item.complete).length} Items To Complete
+          To Do List Manager ({list.filter(item => !item.complete).length}) 
           </h2>
           </Navbar>
         
         </header>
+        </Col>
+        </Row>
 
-      <Container>
+      <Row>
+          <Col md={4}>
        
-        <section className="todo">
+        {/* <section className="todo"> */}
 
           <div>
             <TodoForm handleSubmit={addItem} />
           </div>
+          </Col>
 
+          <Col md={8}>
           <div>
             <TodoList
               list={list}
               handleComplete={toggleComplete}
               />
           </div>
-        </section>
-       
+          </Col>
+        {/* </section> */}
+           
+        </Row>
         </Container>
     </>
   );

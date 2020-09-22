@@ -3,18 +3,18 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 function TodoList(props) {
   return (
-    <ul>
+    <ListGroup>
       {props.list.map(item => (
-        <li
-          className={`complete-${item.complete.toString()}`}
+        <ListGroup.Item action variant={ item.complete ? "success" : "danger"}
+          // className={`complete-${item.complete.toString()}`}
           key={item._id}
         >
           <span onClick={() => props.handleComplete(item._id)}>
             {item.text}
           </span>
-        </li>
+        </ListGroup.Item>
       ))}
-    </ul>
+    </ListGroup>
   );
 }
 
