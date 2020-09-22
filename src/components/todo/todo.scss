@@ -57,19 +57,19 @@ body, html {
 
           &.complete-true {
             span {
-              background: pink;
+              background: rgb(167, 255, 205);
               text-decoration:line-through;
               &:hover {
-                 background: seagreen;
+                 background:pink;
               }
             }
           }
 
           span {
-              background: #e0e0e0;
+              background: pink;
               cursor:pointer;
               &:hover {
-                  background: pink;
+                  background:  rgb(167, 255, 205);
               }
           }
            span, input {

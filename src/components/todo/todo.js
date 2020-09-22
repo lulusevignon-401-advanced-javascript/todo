@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
 
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container'
+
+
 import './todo.scss';
 
 function ToDo() {
@@ -41,15 +45,16 @@ function ToDo() {
   return (
     <>
         <header>
-          
+          <Navbar bg="dark" style={{ color : "#FFF" }}>
           <h2>
           There are {list.filter(item => !item.complete).length} Items To Complete
           </h2>
-
+          </Navbar>
         
         </header>
 
-
+      <Container>
+       
         <section className="todo">
 
           <div>
@@ -63,6 +68,8 @@ function ToDo() {
               />
           </div>
         </section>
+       
+        </Container>
     </>
   );
 }
