@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
 
@@ -7,19 +7,25 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import axios from 'axios'
+import useAjax from './ajaxHook';
+
 
 import './todo.scss';
 
 function ToDo() {
 
-  const [list, setList] = useState([])
+  const { list, setList } = useAjax('http://localhost:3000/api/v1/todos')
 
-  useEffect( async () => {
+  // useEffect( () => {
 
-    const response = await axios.get('http://localhost:3000/api/v1/todos')
+  //   async function fetchData(){
+  //   const response = await axios.get('http://localhost:3000/api/v1/todos');
 
-    setList(response.data.results);
+  //   setList(response.data.results);  
+  //   }
+
+  //   fetchData();
+
 
     // let updatedList = [
     //   { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A' },
@@ -30,7 +36,7 @@ function ToDo() {
     // ];
 
     // setList(updatedList);
-  }, []);
+  // }, []);
 
   const addItem = (item) => {
     item._id = Math.random();
