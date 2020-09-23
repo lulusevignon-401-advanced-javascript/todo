@@ -12,7 +12,7 @@ function TodoForm(props){
   }, [props]);
 
   const handleInputChange = e => {
-    setRequest({ item: {...request.item, [e.target.name]: e.target.value } });
+    setRequest({ item: {...request, [e.target.name]: e.target.value } });
   };
 
   const handleSubmit = (e) => {
@@ -55,22 +55,19 @@ function TodoForm(props){
     <Card>
       <Card.Body>
   <Form onSubmit={handleSubmit}>
-  <Form.Group controlId="formBasicEmail">
+  <Form.Group controlId="formBasicTask">
     <Form.Label>Add Item</Form.Label>
     <Form.Control name="text" type="text" placeholder="Item Details" onChange={handleInputChange} />
     
   </Form.Group>
-  <Form.Group controlId="rating">
+  <Form.Group controlId="formBasicRating">
   <Form.Label>Difficulty Rating</Form.Label>
   <Form.Control name="difficulty" type="range" defaultValue="1" min="1" max="5" onChange={handleInputChange}/>
   </Form.Group>
-  <Form.Group controlId="formBasicPassword">
+  <Form.Group controlId="formBasicAssignee">
     <Form.Label>Assigned To</Form.Label>
     <Form.Control  name="assignee" type="text" placeholder="Assignee" onChange={handleInputChange} />
   
-  </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    
   </Form.Group>
   <Button variant="primary" type="submit">
     Add Item

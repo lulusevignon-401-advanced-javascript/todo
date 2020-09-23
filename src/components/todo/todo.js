@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import axios from 'axios'
 
 import './todo.scss';
 
@@ -14,18 +15,23 @@ function ToDo() {
 
   const [list, setList] = useState([])
 
-  useEffect(() => {
-    let updatedList = [
-      { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A' },
-      { _id: 2, complete: false, text: 'Do the Laundry', difficulty: 2, assignee: 'Person A' },
-      { _id: 3, complete: false, text: 'Walk the Dog', difficulty: 4, assignee: 'Person B' },
-      { _id: 4, complete: true, text: 'Do Homework', difficulty: 3, assignee: 'Person C' },
-      { _id: 5, complete: false, text: 'Take a Nap', difficulty: 1, assignee: 'Person B' },
-    ];
+  useEffect( async () => {
 
-    setList(updatedList);
+    const response = await axios.get('http://localhost:3000/api/v1/todos')
+
+    setList(response.data.results);
+
+    // let updatedList = [
+    //   { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A' },
+    //   { _id: 2, complete: false, text: 'Do the Laundry', difficulty: 2, assignee: 'Person A' },
+    //   { _id: 3, complete: false, text: 'Walk the Dog', difficulty: 4, assignee: 'Person B' },
+    //   { _id: 4, complete: true, text: 'Do Homework', difficulty: 3, assignee: 'Person C' },
+    //   { _id: 5, complete: false, text: 'Take a Nap', difficulty: 1, assignee: 'Person B' },
+    // ];
+
+    // setList(updatedList);
   }, []);
-  
+
   const addItem = (item) => {
     item._id = Math.random();
     item.complete = false;
@@ -48,7 +54,8 @@ function ToDo() {
   return (
     <>
       <Container>
-      <Row>
+    
+      <Row className="managerList">
           <Col>
         <header>
           <Navbar bg="dark" style={{ color : "#FFF" }}>
@@ -82,6 +89,7 @@ function ToDo() {
         {/* </section> */}
            
         </Row>
+   
         </Container>
     </>
   );
