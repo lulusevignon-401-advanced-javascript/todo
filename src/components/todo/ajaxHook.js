@@ -7,7 +7,6 @@ const useAjax = (url) => {
   const [list, setList] = useState([]);
   
 
-
   useEffect(() => {
 
     async function fetchData() {
@@ -21,6 +20,22 @@ const useAjax = (url) => {
     fetchData();
 
   }, [url]);
+
+  // async function postTask(){
+
+
+  // }
+
+  // async function updateTask(){
+
+  // }
+
+  // async function deleteTask(id){
+  //   await axios.delete(`${url}/${id}`);
+  //   let newList = list.filter(item => item._id !== id);
+
+  //   return setList(newList);
+  // }
 
 
   return {

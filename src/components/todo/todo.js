@@ -11,9 +11,11 @@ import useAjax from './ajaxHook';
 
 
 import './todo.scss';
+import axios from 'axios';
 
 function ToDo() {
 
+  
   const { list, setList } = useAjax('http://localhost:3000/api/v1/todos')
 
   // useEffect( () => {
@@ -38,23 +40,32 @@ function ToDo() {
     // setList(updatedList);
   // }, []);
 
-  const addItem = (item) => {
-    item._id = Math.random();
+  async function addItem(item){
     item.complete = false;
-    setList([...list, item]);
+    const response = await axios.post('http://localhost:3000/api/v1/todos');
+    const result = response.data;
+    setList([...list, result]);
   };
 
-  const toggleComplete = id => {
+  async function toggleComplete(id){
 
     let item = list.filter(i => i._id === id)[0] || {};
 
     if (item._id) {
       item.complete = !item.complete;
+      await axios.put(`http://localhost:3000/api/v1/todos/${id}`);
       let updatedList = list.map(listItem => listItem._id === item._id ? item : listItem);
       setList(updatedList);
     }
 
   };
+
+   async function deleteItem(id){
+    await axios.delete(`http://localhost:3000/api/v1/todos/${id}`);
+    let newList = list.filter(item => item._id !== id);
+
+    return setList(newList);
+  }
 
 
   return (
