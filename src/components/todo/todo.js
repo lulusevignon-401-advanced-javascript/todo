@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 
 import useAjax from './ajaxHook';
 
+import Auth from './auth';
 
 import './todo.scss';
 import axios from 'axios';
@@ -97,11 +98,13 @@ function ToDo() {
 
           <Col md={8}>
           <div>
+          <Auth capability="delete">
             <TodoList
               list={list}
               handleComplete={toggleComplete}
               handleDelete={deleteItem}
               />
+            </Auth>
           </div>
           </Col>
         {/* </section> */}
