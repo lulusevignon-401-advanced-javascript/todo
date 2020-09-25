@@ -25,5 +25,14 @@
 - As a user, I would like my list sorted by difficulty so that I can more easily prioritize
 As a user, I would like the option to change my default preferences with regards to how many Items I see per page, which items are filtered, and how they are sorted
 
+## Phase 4 :
+
+- As a user, I want to provide a way for other users to create new accounts
+- As a user, I want to provide a way for all users to login to their account
+- As a user, I want to make sure that my To Do items are only viewable to users that have logged in with a valid account.
+- As a user, I want to ensure that only fellow users that are allowed to “create”, based on their user type, can add new To Do Items
+- As a user, I want to ensure that only fellow users that are allowed to “update”, based on their user type, can mark To Do Items complete
+- As a user, I want to ensure that only fellow users that are allowed to “delete”, based on their user type, can delete new To Do Items
+
 ## UML
 ![TODO uml](./assets/uml.png)
