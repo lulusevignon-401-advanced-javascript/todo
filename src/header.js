@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
+import Auth from './components/todo/auth.js';
 import Nav from 'react-bootstrap/Nav'
 
 function Header(){
@@ -9,8 +10,11 @@ function Header(){
     
       <Nav className="mr-auto">
         <Nav.Link>Home</Nav.Link>
+        <Auth><Nav.Link>Log In
+        {/* <Login /> */}
+        </Nav.Link></Auth>
       </Nav>
-      
+
       </Navbar>
 
     </header>

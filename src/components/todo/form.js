@@ -5,6 +5,8 @@ import Form from 'react-bootstrap/Form'
 
 import useForm from './formHook.js'
 
+import Auth from './auth';
+
 function TodoForm(props){
 
   // const [request, setRequest] = useState({});
@@ -59,6 +61,8 @@ function TodoForm(props){
 
 
   return (
+    <>
+    <Auth capability="post">
     <Card>
       <Card.Body>
   <Form onSubmit={handleSubmit}>
@@ -82,6 +86,8 @@ function TodoForm(props){
 </Form>
 </Card.Body>
 </Card>
+</Auth>
+</>
   );
 
 }
