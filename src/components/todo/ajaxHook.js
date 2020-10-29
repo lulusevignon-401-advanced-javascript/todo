@@ -5,7 +5,7 @@ const useAjax = (url) => {
 
 
   const [list, setList] = useState([]);
-  
+   
 
   useEffect(() => {
 

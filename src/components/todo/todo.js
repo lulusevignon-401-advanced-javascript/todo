@@ -42,7 +42,7 @@ function ToDo() {
 
   async function addItem(item){
     item.complete = false;
-    const response = await axios.post('http://localhost:3000/api/v1/todos');
+    const response = await axios.post('http://localhost:3000/api/v1/todos', item);
     const result = response.data;
     setList([...list, result]);
   };
@@ -62,7 +62,7 @@ function ToDo() {
 
    async function deleteItem(id){
     await axios.delete(`http://localhost:3000/api/v1/todos/${id}`);
-    let newList = list.filter(item => item._id !== id);
+    let newList = list.filter(item => item._id !== id ? item : null);
 
     return setList(newList);
   }
@@ -100,6 +100,7 @@ function ToDo() {
             <TodoList
               list={list}
               handleComplete={toggleComplete}
+              handleDelete={deleteItem}
               />
           </div>
           </Col>
