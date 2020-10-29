@@ -1,5 +1,11 @@
 # TODO 
 
+## Start the App
+- Clone api-server-todo 
+    - https://github.com/luluse/api-server-todo
+    - add .env file with PORT and MONGODB_URI
+- run npm start on Todo React app
+
 ## Phase 1: 
 
 - As a user, I would like an easy way to add a new to do item using an online interface

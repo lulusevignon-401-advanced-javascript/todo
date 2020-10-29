@@ -1,17 +1,26 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup'
+import Toast from 'react-bootstrap/Toast'
+import Badge from 'react-bootstrap/Badge'
 
 function TodoList(props) {
   return (
     <ListGroup>
       {props.list.map(item => (
-        <ListGroup.Item action variant={ item.complete ? "success" : "danger"}
-          // className={`complete-${item.complete.toString()}`}
-          key={item._id}
-        >
-          <span onClick={() => props.handleComplete(item._id)}>
-            {item.text}
-          </span>
+        <ListGroup.Item key={item._id}>
+          <Toast>
+    <Toast.Header>
+    <Badge pill action variant={ item.complete ? "success" : "danger"}className="mr-auto" onClick={() => props.handleComplete(item._id)}><strong>{item.complete? "complete" : "pending" }</strong></Badge>
+    
+      
+      <small>{item.assignee}</small>
+    </Toast.Header>
+    <Toast.Body >
+      <small>Difficulty: {item.difficulty}</small>
+  <p><strong>{item.text}</strong></p>
+      </Toast.Body>
+  </Toast>
+          
         </ListGroup.Item>
       ))}
     </ListGroup>
