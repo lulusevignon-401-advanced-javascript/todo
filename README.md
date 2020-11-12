@@ -1,10 +1,15 @@
 # TODO 
 
+A Web Application for securely managing a To Do List
+
 ## Start the App
-- Clone api-server-todo 
+- Clone down api-server-todo 
     - https://github.com/luluse/api-server-todo
     - add .env file with PORT and MONGODB_URI
-- run npm start on Todo React app
+    - Turn on server
+- Clone down this repo
+    - add .env file with REACT_APP_API and REACT_APP_SECRET
+    - run npm start on Todo React app
 
 ## Phase 1: 
 
@@ -33,6 +38,18 @@ As a user, I would like the option to change my default preferences with regards
 - As a user, I want to ensure that only fellow users that are allowed to “create”, based on their user type, can add new To Do Items
 - As a user, I want to ensure that only fellow users that are allowed to “update”, based on their user type, can mark To Do Items complete
 - As a user, I want to ensure that only fellow users that are allowed to “delete”, based on their user type, can delete new To Do Items
+
+## Technical Requirements
+
+- React
+- ES6 Classes
+- Settings delivered to the application using Context
+- User Login & Permissions delivered to the application using Context
+- Local Storage for storing login status
+- Local Storage for storing user preferences
+- Superagent and Axios for performing API Requests
+- React Bootstrap for styling
+
 
 ## UML
 ![TODO uml](./assets/uml.png)
